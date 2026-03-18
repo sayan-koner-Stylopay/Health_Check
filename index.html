@@ -7,488 +7,201 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:        #f0f2f7;
-  --surface:   #ffffff;
-  --surface2:  #f7f8fc;
-  --border:    #e4e7ef;
-  --accent:    #4f6ef7;
-  --green:     #16a34a;
-  --green-bg:  #dcfce7;
-  --red:       #dc2626;
-  --red-bg:    #fee2e2;
-  --amber:     #d97706;
-  --amber-bg:  #fef3c7;
-  --slate:     #64748b;
-  --text:      #0f172a;
-  --text-sub:  #64748b;
-  --zoqq:      #6366f1;
-  --hashdt:    #0ea5e9;
-  --stylopay:  #a855f7;
-  --radius:    14px;
-  --shadow:    0 1px 3px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.04);
+  --bg:       #f0f2f7;
+  --surface:  #ffffff;
+  --surface2: #f7f8fc;
+  --border:   #e4e7ef;
+  --accent:   #4f6ef7;
+  --green:    #16a34a;
+  --green-bg: #dcfce7;
+  --red:      #dc2626;
+  --red-bg:   #fee2e2;
+  --amber:    #d97706;
+  --amber-bg: #fef3c7;
+  --slate:    #64748b;
+  --text:     #0f172a;
+  --sub:      #64748b;
+  --zoqq:     #6366f1;
+  --hashdt:   #0ea5e9;
+  --stylopay: #a855f7;
+  --r:        13px;
+  --sh:       0 1px 3px rgba(0,0,0,.07), 0 4px 14px rgba(0,0,0,.04);
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'Plus Jakarta Sans',sans-serif; min-height:100vh; }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  min-height: 100vh;
-}
-
-/* HEADER */
+/* ── HEADER ── */
 header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  height: 60px;
-  display: flex;
-  align-items: center;
-  padding: 0 28px;
-  gap: 14px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  background:var(--surface); border-bottom:1px solid var(--border);
+  height:58px; display:flex; align-items:center; padding:0 24px; gap:12px;
+  position:sticky; top:0; z-index:100;
 }
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  font-size: 16px;
-  color: var(--text);
-  letter-spacing: -0.3px;
-  flex-shrink: 0;
-}
-
-.logo-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: blink 2.4s ease infinite;
-  box-shadow: 0 0 0 3px #dcfce7;
-}
-
+.logo { display:flex; align-items:center; gap:9px; font-weight:800; font-size:15px; flex-shrink:0; }
+.ldot { width:8px; height:8px; border-radius:50%; background:var(--green); animation:blink 2.4s infinite; box-shadow:0 0 0 3px #dcfce7; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.hdiv { width:1px; height:20px; background:var(--border); flex-shrink:0; }
+.clock { font-size:11.5px; color:var(--sub); font-weight:500; flex-shrink:0; }
+.hgap { flex:1; }
 
-.h-div { width:1px; height:22px; background:var(--border); flex-shrink:0; }
-.clock { font-size:12px; color:var(--text-sub); font-weight:500; flex-shrink:0; }
-.h-gap { flex:1; }
-
-.btn {
-  height: 36px;
-  padding: 0 16px;
-  border-radius: 9px;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all .15s;
-  white-space: nowrap;
+/* ── TIER TABS ── */
+.tier-tabs { display:flex; gap:3px; background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:3px; }
+.ttab {
+  padding:5px 18px; border-radius:7px; font-size:12.5px; font-weight:700;
+  cursor:pointer; border:none; background:transparent; color:var(--sub);
+  transition:all .15s; font-family:inherit; white-space:nowrap;
 }
+.ttab:hover { color:var(--text); }
+.ttab.active { background:var(--surface); box-shadow:0 1px 4px rgba(0,0,0,.1); }
+.ttab.prod.active   { color:#16a34a; }
+.ttab.sandbox.active{ color:#d97706; }
+.ttab.qa.active     { color:#7c3aed; }
+
+.btn { height:34px; padding:0 14px; border-radius:8px; font-family:inherit; font-size:12.5px; font-weight:700; cursor:pointer; border:none; display:inline-flex; align-items:center; gap:5px; transition:all .15s; white-space:nowrap; }
 .btn-primary { background:var(--accent); color:#fff; }
 .btn-primary:hover { background:#3b55e6; }
-.btn-outline { background:transparent; border:1.5px solid var(--border); color:var(--text-sub); }
+.btn-outline { background:transparent; border:1.5px solid var(--border); color:var(--sub); }
 .btn-outline:hover { border-color:var(--accent); color:var(--accent); background:#f0f2ff; }
 .btn-green { background:var(--green-bg); color:var(--green); border:1.5px solid #bbf7d0; }
 .btn-green:hover { background:#bbf7d0; }
 
-/* LAYOUT */
-.layout { display:flex; height:calc(100vh - 60px); }
+/* ── TIER BANNER ── */
+.tier-banner {
+  padding:8px 24px; font-size:12px; font-weight:600;
+  display:flex; align-items:center; gap:8px; flex-shrink:0;
+}
+.tier-banner.prod    { background:#f0fdf4; border-bottom:1px solid #bbf7d0; color:#15803d; }
+.tier-banner.sandbox { background:#fffbeb; border-bottom:1px solid #fde68a; color:#b45309; }
+.tier-banner.qa      { background:#faf5ff; border-bottom:1px solid #e9d5ff; color:#7c3aed; }
 
-/* SIDEBAR */
+/* ── LAYOUT ── */
+.layout { display:flex; height:calc(100vh - 58px); flex-direction:column; }
+.below-banner { display:flex; flex:1; overflow:hidden; }
+
+/* ── SIDEBAR ── */
 .sidebar {
-  width: 220px;
-  flex-shrink: 0;
-  background: var(--surface);
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  padding: 18px 12px;
-  gap: 3px;
-  overflow-y: auto;
+  width:210px; flex-shrink:0; background:var(--surface); border-right:1px solid var(--border);
+  display:flex; flex-direction:column; padding:16px 11px; gap:2px; overflow-y:auto;
 }
-
-.sb-label {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--text-sub);
-  padding: 0 10px;
-  margin: 12px 0 5px;
-}
-.sb-label:first-child { margin-top: 0; }
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 9px 10px;
-  border-radius: 9px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-sub);
-  cursor: pointer;
-  border: none;
-  background: none;
-  width: 100%;
-  text-align: left;
-  transition: all .15s;
-}
+.sblbl { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--sub); padding:0 9px; margin:11px 0 4px; }
+.sblbl:first-child { margin-top:0; }
+.nav { display:flex; align-items:center; gap:8px; padding:8px 9px; border-radius:8px; font-size:13px; font-weight:500; color:var(--sub); cursor:pointer; border:none; background:none; width:100%; text-align:left; transition:all .15s; }
 .nav:hover { background:var(--bg); color:var(--text); }
 .nav.active { background:#eef1ff; color:var(--accent); font-weight:700; }
-
 .ndot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-
-.nbadge {
-  margin-left: auto;
-  font-size: 11px;
-  font-weight: 700;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 1px 7px;
-  border-radius: 20px;
-  color: var(--text-sub);
-}
+.nbadge { margin-left:auto; font-size:10.5px; font-weight:700; background:var(--bg); border:1px solid var(--border); padding:1px 7px; border-radius:20px; color:var(--sub); }
 .nav.active .nbadge { background:#dde3ff; border-color:#c5cfff; color:var(--accent); }
 
-/* CONTENT */
-.content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 22px 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+/* ── CONTENT ── */
+.content { flex:1; overflow-y:auto; padding:20px 24px; display:flex; flex-direction:column; gap:18px; }
 
-/* STAT CARDS */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 12px;
-}
+/* ── STATS ── */
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:11px; }
+.sc { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:14px 16px; display:flex; align-items:center; gap:11px; box-shadow:var(--sh); }
+.sc-icon { width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; }
+.sc-val { font-size:21px; font-weight:800; letter-spacing:-1px; line-height:1; }
+.sc-lbl { font-size:11px; font-weight:500; color:var(--sub); margin-top:3px; }
 
-.sc {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: var(--shadow);
-}
+/* ── PROGRESS ── */
+.pw { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:12px 16px; display:none; align-items:center; gap:12px; box-shadow:var(--sh); }
+.pw.show { display:flex; }
+.plbl { font-size:12.5px; font-weight:600; white-space:nowrap; }
+.ptrack { flex:1; height:5px; background:var(--bg); border-radius:3px; overflow:hidden; border:1px solid var(--border); }
+.pfill { height:100%; background:linear-gradient(90deg,var(--accent),#818cf8); border-radius:3px; width:0%; transition:width .3s ease; }
+.pcnt { font-size:12px; font-weight:700; color:var(--sub); white-space:nowrap; }
 
-.sc-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.sc-val { font-size: 22px; font-weight: 800; letter-spacing: -1px; line-height: 1; }
-.sc-lbl { font-size: 11px; font-weight: 500; color: var(--text-sub); margin-top: 3px; }
-
-/* TOOLBAR */
+/* ── TOOLBAR ── */
 .toolbar { display:flex; align-items:center; gap:10px; }
+.swrap { position:relative; flex:1; max-width:280px; }
+.sicon { position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--sub); font-size:12px; pointer-events:none; }
+input.si { width:100%; height:34px; padding:0 11px 0 30px; border:1.5px solid var(--border); border-radius:8px; font-family:inherit; font-size:13px; color:var(--text); background:var(--surface); transition:border-color .15s; }
+input.si::placeholder { color:#aab0c0; }
+input.si:focus { outline:none; border-color:var(--accent); }
 
-.search-wrap { position:relative; flex:1; max-width:300px; }
-.search-icon { position:absolute; left:11px; top:50%; transform:translateY(-50%); color:var(--text-sub); font-size:13px; pointer-events:none; }
-
-input.search {
-  width:100%; height:36px;
-  padding: 0 12px 0 32px;
-  border: 1.5px solid var(--border);
-  border-radius: 9px;
-  font-family: inherit;
-  font-size: 13px;
-  color: var(--text);
-  background: var(--surface);
-  transition: border-color .15s;
-}
-input.search::placeholder { color:#aab0c0; }
-input.search:focus { outline:none; border-color:var(--accent); }
-
-/* PROGRESS */
-.prog-wrap {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 13px 18px;
-  display: none;
-  align-items: center;
-  gap: 14px;
-  box-shadow: var(--shadow);
-}
-.prog-wrap.show { display:flex; }
-.prog-lbl { font-size:13px; font-weight:600; white-space:nowrap; }
-.prog-track { flex:1; height:5px; background:var(--bg); border-radius:3px; overflow:hidden; border:1px solid var(--border); }
-.prog-fill { height:100%; background:linear-gradient(90deg,var(--accent),#818cf8); border-radius:3px; width:0%; transition:width .3s ease; }
-.prog-cnt { font-size:12px; font-weight:700; color:var(--text-sub); white-space:nowrap; }
-
-/* SECTION CARD */
-.sec-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  margin-bottom: 16px;
-}
-
-.sec-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface2);
-}
-
-.env-pill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 11px 4px 7px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
-}
-
+/* ── SECTION CARD ── */
+.sec-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; box-shadow:var(--sh); margin-bottom:14px; }
+.sec-head { display:flex; align-items:center; gap:10px; padding:13px 18px; border-bottom:1px solid var(--border); background:var(--surface2); }
+.env-pill { display:flex; align-items:center; gap:6px; padding:4px 11px 4px 7px; border-radius:20px; font-size:13px; font-weight:700; }
 .env-dot { width:8px; height:8px; border-radius:50%; }
-
-.sec-meta { font-size:12px; color:var(--text-sub); font-weight:500; }
-
-.sec-btn {
-  margin-left: auto;
-  height: 29px;
-  padding: 0 12px;
-  border-radius: 7px;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  border: 1.5px solid var(--border);
-  background: var(--surface);
-  color: var(--text-sub);
-  transition: all .15s;
-}
+.sec-meta { font-size:12px; color:var(--sub); font-weight:500; }
+.sec-btn { margin-left:auto; height:28px; padding:0 11px; border-radius:7px; font-family:inherit; font-size:11.5px; font-weight:700; cursor:pointer; border:1.5px solid var(--border); background:var(--surface); color:var(--sub); transition:all .15s; }
 .sec-btn:hover { border-color:var(--accent); color:var(--accent); background:#f0f2ff; }
 
-/* TABLE */
+/* ── TABLE ── */
 table { width:100%; border-collapse:collapse; }
-
-thead th {
-  padding: 9px 18px;
-  text-align: left;
-  font-size: 10.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  color: var(--text-sub);
-  border-bottom: 1px solid var(--border);
-  background: var(--surface2);
-}
-
-tbody tr {
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-  transition: background .1s;
-}
+thead th { padding:8px 18px; text-align:left; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--sub); border-bottom:1px solid var(--border); background:var(--surface2); }
+tbody tr { border-bottom:1px solid var(--border); cursor:pointer; transition:background .1s; }
 tbody tr:last-child { border-bottom:none; }
 tbody tr:hover { background:#f6f8ff; }
-
-td { padding:12px 18px; font-size:13.5px; vertical-align:middle; }
+td { padding:11px 18px; font-size:13px; vertical-align:middle; }
 
 .prod-cell { display:flex; align-items:center; gap:10px; }
+.prod-icon { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; flex-shrink:0; }
+.prod-name { font-weight:600; color:var(--text); font-size:13px; }
+.prod-sub  { font-size:11px; color:var(--sub); font-weight:500; margin-top:1px; }
 
-.prod-icon {
-  width: 34px; height: 34px;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 800;
-  flex-shrink: 0;
-}
+.chip { display:inline-block; padding:2px 9px; border-radius:6px; background:var(--bg); border:1px solid var(--border); font-size:11.5px; font-weight:600; color:var(--sub); font-family:'Courier New',monospace; }
+.path { font-size:11.5px; color:var(--sub); font-family:'Courier New',monospace; font-weight:500; }
 
-.prod-name { font-weight:600; color:var(--text); font-size:13.5px; }
-.prod-sub  { font-size:11px; color:var(--text-sub); font-weight:500; margin-top:1px; }
-
-.chip {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 6px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-sub);
-  font-family: 'Courier New', monospace;
-}
-
-.path { font-size:12px; color:var(--text-sub); font-family:'Courier New',monospace; font-weight:500; }
-
-/* BADGE */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 11.5px;
-  font-weight: 700;
-}
-.bdot { width:6px; height:6px; border-radius:50%; }
-
+/* ── STATUS BADGE ── */
+.badge { display:inline-flex; align-items:center; gap:5px; padding:3px 9px; border-radius:20px; font-size:11px; font-weight:700; }
+.bdot { width:5px; height:5px; border-radius:50%; }
 .b-up   { background:var(--green-bg); color:var(--green); }
-.b-up .bdot { background:var(--green); animation:blink 2s infinite; }
+.b-up   .bdot { background:var(--green); animation:blink 2s infinite; }
 .b-down { background:var(--red-bg);   color:var(--red);   }
 .b-down .bdot { background:var(--red); }
 .b-chk  { background:var(--amber-bg); color:var(--amber); }
-.b-chk .bdot  { background:var(--amber); animation:blink .6s infinite; }
-.b-unk  { background:var(--bg); color:var(--text-sub); border:1px solid var(--border); }
-.b-unk .bdot  { background:var(--text-sub); }
+.b-chk  .bdot { background:var(--amber); animation:blink .6s infinite; }
+.b-unk  { background:var(--bg); color:var(--sub); border:1px solid var(--border); }
+.b-unk  .bdot { background:var(--sub); }
 
-/* ROW ACTIONS */
+/* ── ROW ACTIONS ── */
 .ra { display:flex; align-items:center; gap:5px; justify-content:flex-end; }
-
-.ibtn {
-  width: 29px; height: 29px;
-  border-radius: 7px;
-  border: 1.5px solid var(--border);
-  background: var(--surface);
-  color: var(--text-sub);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  transition: all .15s;
-  font-family: inherit;
-}
+.ibtn { width:28px; height:28px; border-radius:7px; border:1.5px solid var(--border); background:var(--surface); color:var(--sub); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:13px; transition:all .15s; font-family:inherit; }
 .ibtn:hover { border-color:var(--accent); color:var(--accent); background:#f0f2ff; }
 .ibtn.del:hover { border-color:var(--red); color:var(--red); background:#fff1f1; }
 
-/* EMPTY */
-.empty { padding:44px 20px; text-align:center; color:var(--text-sub); font-size:14px; font-weight:500; }
+/* ── EMPTY ── */
+.empty { padding:40px 20px; text-align:center; color:var(--sub); font-size:14px; font-weight:500; }
 
-/* MODAL */
-.overlay {
-  display:none; position:fixed; inset:0;
-  background:rgba(15,23,42,.4);
-  backdrop-filter:blur(4px);
-  z-index:300; align-items:center; justify-content:center;
-}
+/* ── MODAL ── */
+.overlay { display:none; position:fixed; inset:0; background:rgba(15,23,42,.4); backdrop-filter:blur(4px); z-index:300; align-items:center; justify-content:center; }
 .overlay.open { display:flex; }
-
-.modal {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  width: 520px;
-  max-width: 95vw;
-  max-height: 92vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0,0,0,.15);
-  animation: pop .18s ease;
-}
+.modal { background:var(--surface); border:1px solid var(--border); border-radius:18px; width:520px; max-width:95vw; max-height:92vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,.15); animation:pop .18s ease; }
 @keyframes pop { from{transform:scale(.96) translateY(8px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
-
-.mh {
-  padding: 20px 22px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border);
-}
-.mtitle { font-size:17px; font-weight:800; letter-spacing:-.3px; }
-
-.xbtn {
-  width:30px; height:30px; border-radius:8px;
-  border:1.5px solid var(--border); background:var(--bg);
-  color:var(--text-sub); cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  font-size:17px; transition:all .15s; font-family:inherit;
-}
+.mh { padding:18px 22px 14px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); }
+.mtitle { font-size:16px; font-weight:800; }
+.xbtn { width:28px; height:28px; border-radius:7px; border:1.5px solid var(--border); background:var(--bg); color:var(--sub); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; transition:all .15s; font-family:inherit; }
 .xbtn:hover { color:var(--text); border-color:var(--text); }
-
-.mb { padding:18px 22px; display:flex; flex-direction:column; gap:13px; }
-.r2 { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
-
-.fg { display:flex; flex-direction:column; gap:5px; }
+.mb { padding:16px 22px; display:flex; flex-direction:column; gap:12px; }
+.r2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.fg { display:flex; flex-direction:column; gap:4px; }
 .fg.full { grid-column:1/-1; }
-.fg label { font-size:11px; font-weight:700; color:var(--text-sub); text-transform:uppercase; letter-spacing:.06em; }
-
-.fg input, .fg select, .fg textarea {
-  height:38px; padding:0 11px;
-  border:1.5px solid var(--border); border-radius:9px;
-  font-family:inherit; font-size:13px; color:var(--text); background:var(--surface);
-  transition:border-color .15s; appearance:none;
-}
+.fg label { font-size:10.5px; font-weight:700; color:var(--sub); text-transform:uppercase; letter-spacing:.06em; }
+.fg input, .fg select, .fg textarea { height:36px; padding:0 10px; border:1.5px solid var(--border); border-radius:8px; font-family:inherit; font-size:13px; color:var(--text); background:var(--surface); transition:border-color .15s; appearance:none; }
 .fg input:focus,.fg select:focus,.fg textarea:focus { outline:none; border-color:var(--accent); }
-.fg textarea { height:66px; padding:9px 11px; resize:vertical; }
+.fg textarea { height:60px; padding:8px 10px; resize:vertical; }
 .fg input::placeholder,.fg textarea::placeholder { color:#aab0c0; }
+.mf { padding:12px 22px 18px; border-top:1px solid var(--border); display:flex; gap:8px; justify-content:flex-end; }
 
-.mf {
-  padding:14px 22px 18px;
-  border-top:1px solid var(--border);
-  display:flex; gap:9px; justify-content:flex-end;
-}
-
-/* DRAWER */
-.drawer {
-  display:none; position:fixed;
-  right:0; top:60px; bottom:0; width:350px;
-  background:var(--surface); border-left:1px solid var(--border);
-  z-index:50; overflow-y:auto;
-  box-shadow:-6px 0 24px rgba(0,0,0,.07);
-  animation:din .2s ease;
-}
+/* ── DRAWER ── */
+.drawer { display:none; position:fixed; right:0; top:58px; bottom:0; width:340px; background:var(--surface); border-left:1px solid var(--border); z-index:50; overflow-y:auto; box-shadow:-6px 0 24px rgba(0,0,0,.07); animation:din .2s ease; }
 .drawer.open { display:block; }
 @keyframes din { from{transform:translateX(28px);opacity:0} to{transform:translateX(0);opacity:1} }
-
-.dh {
-  padding:18px 20px; border-bottom:1px solid var(--border);
-  display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
-  background:var(--surface2); position:sticky; top:0;
-}
-.d-name { font-size:15px; font-weight:800; line-height:1.3; }
-.d-env  { font-size:12px; color:var(--text-sub); font-weight:500; margin-top:3px; }
-
-.db { padding:18px 20px; display:flex; flex-direction:column; gap:14px; }
-
+.dh { padding:16px 18px; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; justify-content:space-between; gap:10px; background:var(--surface2); position:sticky; top:0; }
+.d-name { font-size:15px; font-weight:800; }
+.d-env  { font-size:11.5px; color:var(--sub); font-weight:500; margin-top:3px; }
+.db { padding:16px 18px; display:flex; flex-direction:column; gap:13px; }
 .df { display:flex; flex-direction:column; gap:4px; }
-.dfl { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--text-sub); }
-.dfv {
-  font-size:13px; color:var(--text);
-  word-break:break-all;
-  background:var(--bg); border:1px solid var(--border);
-  border-radius:8px; padding:8px 11px; font-weight:500;
-}
+.dfl { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--sub); }
+.dfv { font-size:12.5px; color:var(--text); word-break:break-all; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:7px 10px; font-weight:500; }
 .dfv a { color:var(--accent); text-decoration:none; }
 .dfv a:hover { text-decoration:underline; }
-
 .da { display:flex; gap:8px; }
 .da .btn { flex:1; justify-content:center; }
 
-/* TOASTS */
+/* ── TOASTS ── */
 .toasts { position:fixed; bottom:18px; right:18px; z-index:999; display:flex; flex-direction:column; gap:7px; pointer-events:none; }
-.toast {
-  padding:10px 15px; border-radius:9px; font-size:13px; font-weight:600;
-  animation:tup .2s ease; border:1.5px solid; max-width:290px; pointer-events:none;
-}
+.toast { padding:10px 14px; border-radius:9px; font-size:12.5px; font-weight:600; animation:tup .2s ease; border:1.5px solid; max-width:280px; }
 @keyframes tup { from{transform:translateY(8px);opacity:0} to{transform:translateY(0);opacity:1} }
 .t-ok  { background:var(--green-bg); border-color:#86efac; color:var(--green); }
 .t-err { background:var(--red-bg);   border-color:#fca5a5; color:var(--red);   }
@@ -497,94 +210,75 @@ td { padding:12px 18px; font-size:13.5px; vertical-align:middle; }
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="logo">
-    <div class="logo-dot"></div>
-    Portal Monitor
-  </div>
-  <div class="h-div"></div>
+  <div class="logo"><div class="ldot"></div>Portal Monitor</div>
+  <div class="hdiv"></div>
   <span class="clock" id="clock"></span>
-  <div class="h-gap"></div>
-  <button class="btn btn-green" onclick="checkAll()">↻ Check All</button>
-  <button class="btn btn-primary" onclick="openAdd()">+ Add Endpoint</button>
+  <div class="hgap"></div>
+
+  <!-- TIER TABS -->
+  <div class="tier-tabs">
+    <button class="ttab prod active"    onclick="setTier('prod',this)">🟢 Production</button>
+    <button class="ttab sandbox"        onclick="setTier('sandbox',this)">🟡 Sandbox</button>
+    <button class="ttab qa"             onclick="setTier('qa',this)">🟣 QA</button>
+  </div>
+
+  <div class="hdiv"></div>
+  <button class="btn btn-green"   onclick="checkAll()">↻ Check All</button>
+  <button class="btn btn-primary" onclick="openAdd()">+ Add</button>
 </header>
 
 <div class="layout">
 
-  <aside class="sidebar">
-    <div class="sb-label">Environments</div>
-    <button class="nav active" id="nav-all" onclick="setEnv('all',this)">
-      <span class="ndot" style="background:#94a3b8"></span>All
-      <span class="nbadge" id="c-all">0</span>
-    </button>
-    <button class="nav" id="nav-ZOQQ" onclick="setEnv('ZOQQ',this)">
-      <span class="ndot" style="background:var(--zoqq)"></span>ZOQQ
-      <span class="nbadge" id="c-ZOQQ">0</span>
-    </button>
-    <button class="nav" id="nav-HashDT" onclick="setEnv('HashDT',this)">
-      <span class="ndot" style="background:var(--hashdt)"></span>HashDT
-      <span class="nbadge" id="c-HashDT">0</span>
-    </button>
-    <button class="nav" id="nav-StyloPay" onclick="setEnv('StyloPay',this)">
-      <span class="ndot" style="background:var(--stylopay)"></span>StyloPay
-      <span class="nbadge" id="c-StyloPay">0</span>
-    </button>
+  <!-- TIER BANNER -->
+  <div class="tier-banner prod" id="tier-banner">
+    🟢 <strong>Production</strong> — Showing live production endpoints
+  </div>
 
-    <div class="sb-label">Filter by Status</div>
-    <button class="nav" id="nav-Healthy" onclick="setStatus('Healthy',this)">
-      <span class="ndot" style="background:var(--green)"></span>Healthy
-      <span class="nbadge" id="c-up">0</span>
-    </button>
-    <button class="nav" id="nav-Unhealthy" onclick="setStatus('Unhealthy',this)">
-      <span class="ndot" style="background:var(--red)"></span>Down
-      <span class="nbadge" id="c-down">0</span>
-    </button>
-    <button class="nav" id="nav-Unknown" onclick="setStatus('Unknown',this)">
-      <span class="ndot" style="background:#94a3b8"></span>Unknown
-      <span class="nbadge" id="c-unk">0</span>
-    </button>
+  <div class="below-banner">
 
-    <div class="sb-label">Tools</div>
-    <button class="nav" onclick="exportCSV()">
-      <span style="font-size:14px">⬇</span>Export CSV
-    </button>
-  </aside>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sblbl">Platform</div>
+      <button class="nav active" id="nav-all"      onclick="setEnv('all',this)"><span class="ndot" style="background:#94a3b8"></span>All<span class="nbadge" id="c-all">0</span></button>
+      <button class="nav"        id="nav-ZOQQ"     onclick="setEnv('ZOQQ',this)"><span class="ndot" style="background:var(--zoqq)"></span>ZOQQ<span class="nbadge" id="c-ZOQQ">0</span></button>
+      <button class="nav"        id="nav-HashDT"   onclick="setEnv('HashDT',this)"><span class="ndot" style="background:var(--hashdt)"></span>HashDT<span class="nbadge" id="c-HashDT">0</span></button>
+      <button class="nav"        id="nav-StyloPay" onclick="setEnv('StyloPay',this)"><span class="ndot" style="background:var(--stylopay)"></span>StyloPay<span class="nbadge" id="c-StyloPay">0</span></button>
 
-  <div class="content">
+      <div class="sblbl">Status</div>
+      <button class="nav" id="nav-Healthy"   onclick="setSt('Healthy',this)"><span class="ndot" style="background:var(--green)"></span>Healthy<span class="nbadge" id="c-up">0</span></button>
+      <button class="nav" id="nav-Unhealthy" onclick="setSt('Unhealthy',this)"><span class="ndot" style="background:var(--red)"></span>Down<span class="nbadge" id="c-down">0</span></button>
+      <button class="nav" id="nav-Unknown"   onclick="setSt('Unknown',this)"><span class="ndot" style="background:#94a3b8"></span>Unknown<span class="nbadge" id="c-unk">0</span></button>
 
-    <div class="stats">
-      <div class="sc">
-        <div class="sc-icon" style="background:#eef1ff">📡</div>
-        <div><div class="sc-val" id="s-total">0</div><div class="sc-lbl">Total</div></div>
+      <div class="sblbl">Tools</div>
+      <button class="nav" onclick="exportCSV()"><span style="font-size:13px">⬇</span>Export CSV</button>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="content">
+      <div class="stats">
+        <div class="sc"><div class="sc-icon" style="background:#eef1ff">📡</div><div><div class="sc-val" id="s-total">0</div><div class="sc-lbl">Total</div></div></div>
+        <div class="sc"><div class="sc-icon" style="background:var(--green-bg)">✅</div><div><div class="sc-val" style="color:var(--green)" id="s-up">0</div><div class="sc-lbl">Healthy</div></div></div>
+        <div class="sc"><div class="sc-icon" style="background:var(--red-bg)">🔴</div><div><div class="sc-val" style="color:var(--red)" id="s-down">0</div><div class="sc-lbl">Down</div></div></div>
+        <div class="sc"><div class="sc-icon" style="background:var(--bg)">❓</div><div><div class="sc-val" style="color:var(--slate)" id="s-unk">0</div><div class="sc-lbl">Unknown</div></div></div>
       </div>
-      <div class="sc">
-        <div class="sc-icon" style="background:var(--green-bg)">✅</div>
-        <div><div class="sc-val" style="color:var(--green)" id="s-up">0</div><div class="sc-lbl">Healthy</div></div>
+
+      <div class="pw" id="pw">
+        <span class="plbl" id="plbl">Checking…</span>
+        <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+        <span class="pcnt" id="pcnt"></span>
       </div>
-      <div class="sc">
-        <div class="sc-icon" style="background:var(--red-bg)">🔴</div>
-        <div><div class="sc-val" style="color:var(--red)" id="s-down">0</div><div class="sc-lbl">Down</div></div>
+
+      <div class="toolbar">
+        <div class="swrap">
+          <span class="sicon">🔍</span>
+          <input class="si" id="si" type="text" placeholder="Search services…" oninput="render()">
+        </div>
       </div>
-      <div class="sc">
-        <div class="sc-icon" style="background:var(--bg)">❓</div>
-        <div><div class="sc-val" style="color:var(--slate)" id="s-unk">0</div><div class="sc-lbl">Unknown</div></div>
-      </div>
+
+      <div id="tables"></div>
     </div>
-
-    <div class="prog-wrap" id="pw">
-      <span class="prog-lbl" id="plbl">Checking…</span>
-      <div class="prog-track"><div class="prog-fill" id="pfill"></div></div>
-      <span class="prog-cnt" id="pcnt"></span>
-    </div>
-
-    <div class="toolbar">
-      <div class="search-wrap">
-        <span class="search-icon">🔍</span>
-        <input class="search" id="si" type="text" placeholder="Search services…" oninput="render()">
-      </div>
-    </div>
-
-    <div id="tables"></div>
   </div>
 </div>
 
@@ -600,25 +294,23 @@ td { padding:12px 18px; font-size:13.5px; vertical-align:middle; }
 <!-- MODAL -->
 <div class="overlay" id="overlay">
   <div class="modal">
-    <div class="mh">
-      <span class="mtitle" id="mtitle">Add Endpoint</span>
-      <button class="xbtn" onclick="closeModal()">×</button>
-    </div>
+    <div class="mh"><span class="mtitle" id="mtitle">Add Endpoint</span><button class="xbtn" onclick="closeModal()">×</button></div>
     <div class="mb">
       <div class="r2">
         <div class="fg"><label>Product Name *</label><input id="fp" type="text" placeholder="e.g. zoqq-admin-fe"></div>
-        <div class="fg"><label>Environment *</label>
+        <div class="fg"><label>Platform *</label>
           <select id="fe"><option value="ZOQQ">ZOQQ</option><option value="HashDT">HashDT</option><option value="StyloPay">StyloPay</option></select>
         </div>
       </div>
-      <div class="fg full"><label>Base URL *</label><input id="fu" type="text" placeholder="https://example.com"></div>
-      <div class="r2">
-        <div class="fg"><label>Port</label><input id="fpo" type="number" placeholder="80"></div>
-        <div class="fg"><label>Health Path</label><input id="fpa" type="text" placeholder="/health"></div>
+      <div class="fg full"><label>Production URL *</label><input id="fu" type="text" placeholder="https://admin.zoqq.com/health"></div>
+      <div class="fg full" style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 12px;gap:6px">
+        <label style="color:#b45309">🟡 Sandbox URL (auto-generated)</label>
+        <input id="fu-sb" type="text" placeholder="Auto from prod URL" style="background:#fff8e1">
+        <label style="color:#7c3aed;margin-top:4px">🟣 QA URL (auto-generated)</label>
+        <input id="fu-qa" type="text" placeholder="Auto from prod URL" style="background:#faf5ff">
       </div>
-      <div class="fg full"><label>Final URL (auto or override)</label><input id="ff" type="text" placeholder="Auto-computed from above"></div>
       <div class="r2">
-        <div class="fg"><label>Done By</label><input id="fd" type="text" placeholder="Name"></div>
+        <div class="fg"><label>Done By</label><input id="fd" type="text" placeholder="Your name"></div>
         <div class="fg"><label>Status</label>
           <select id="fs"><option value="Unknown">Unknown</option><option value="Healthy">Healthy</option><option value="Unhealthy">Unhealthy</option></select>
         </div>
@@ -635,103 +327,189 @@ td { padding:12px 18px; font-size:13.5px; vertical-align:middle; }
 <div class="toasts" id="toasts"></div>
 
 <script>
-let data = [
-  {id:1,  env:'ZOQQ',     product:'zoqq-admin-fe',     url:'https://admin.zoqq.com',        port:80,   path:'/health',          finalUrl:'https://admin.zoqq.com',                             status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:2,  env:'ZOQQ',     product:'zoqq-admin-be',     url:'https://admin.zoqq.com',        port:8000, path:'/health',          finalUrl:'https://admin.zoqq.com:8000/health',                 status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:3,  env:'ZOQQ',     product:'zoqq-cards-fe',     url:'https://carduser.zoqq.com',     port:80,   path:'/health',          finalUrl:'https://carduser.zoqq.com',                          status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:4,  env:'ZOQQ',     product:'zoqq-cards-be',     url:'https://carduser.zoqq.com',     port:8000, path:'/health',          finalUrl:'https://carduser.zoqq.com:8000/health',              status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:5,  env:'ZOQQ',     product:'zoqq-user-fe',      url:'https://biz.zoqq.com',          port:80,   path:'/health',          finalUrl:'https://biz.zoqq.com',                               status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:6,  env:'ZOQQ',     product:'zoqq-user-be',      url:'https://biz.zoqq.com',          port:8000, path:'/health',          finalUrl:'https://biz.zoqq.com:8000/health',                   status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:7,  env:'ZOQQ',     product:'zoqq-onboarding',   url:'https://developer.zoqq.com',    port:8070, path:'/actuator/health', finalUrl:'https://developer.zoqq.com:8070/actuator/health',    status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:8,  env:'ZOQQ',     product:'zoqq-account',      url:'https://developer.zoqq.com',    port:8072, path:'/actuator/health', finalUrl:'https://developer.zoqq.com:8072/actuator/health',    status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:9,  env:'ZOQQ',     product:'zoqq-tx',           url:'https://developer.zoqq.com',    port:8074, path:'/actuator/health', finalUrl:'https://developer.zoqq.com:8074/actuator/health',    status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:10, env:'ZOQQ',     product:'zoqq-card',         url:'https://developer.zoqq.com',    port:8075, path:'/actuator/health', finalUrl:'https://developer.zoqq.com:8075/actuator/health',    status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:11, env:'ZOQQ',     product:'zoqq-rbac',         url:'https://developer.zoqq.com',    port:5002, path:'/health',          finalUrl:'https://developer.zoqq.com:5002/health',             status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:12, env:'ZOQQ',     product:'zoqq-webhook',      url:'https://webhook.zoqq.com',      port:443,  path:'/health',          finalUrl:'https://webhook.zoqq.com/health',                    status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:13, env:'HashDT',   product:'card portal - fe',  url:'https://carduser.hashdt.com',   port:80,   path:'/health',          finalUrl:'https://carduser.hashdt.com',                        status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:14, env:'HashDT',   product:'card portal - be',  url:'https://carduser.hashdt.com',   port:8000, path:'/health',          finalUrl:'https://carduser.hashdt.com:8000/health',            status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:15, env:'HashDT',   product:'admin portal - fe', url:'https://admin.hashdt.com',      port:80,   path:'/health',          finalUrl:'https://admin.hashdt.com',                           status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:16, env:'HashDT',   product:'admin portal - be', url:'https://admin.hashdt.com',      port:8000, path:'/health',          finalUrl:'https://admin.hashdt.com:8000/health',               status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:17, env:'HashDT',   product:'onboarding',        url:'https://developer.hashdt.com',  port:8090, path:'/actuator/health', finalUrl:'https://developer.hashdt.com:8090/actuator/health',  status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:18, env:'HashDT',   product:'kyc',               url:'https://developer.hashdt.com',  port:8091, path:'/actuator/health', finalUrl:'https://developer.hashdt.com:8091/actuator/health',  status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:19, env:'HashDT',   product:'wallet',            url:'https://developer.hashdt.com',  port:8092, path:'/actuator/health', finalUrl:'https://developer.hashdt.com:8092/actuator/health',  status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:20, env:'HashDT',   product:'card',              url:'https://developer.hashdt.com',  port:8095, path:'/actuator/health', finalUrl:'https://developer.hashdt.com:8095/actuator/health',  status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:21, env:'HashDT',   product:'rha',               url:'https://developer.hashdt.com',  port:8096, path:'/actuator/health', finalUrl:'https://rha.zoqq.com:8096/actuator/health',          status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:22, env:'StyloPay', product:'web-admin',         url:'https://adminusd.stylopay.com', port:80,   path:'/health',          finalUrl:'https://adminusd.stylopay.com/',                     status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:23, env:'StyloPay', product:'web-user',          url:'https://mcaas.stylopay.com',    port:80,   path:'/health',          finalUrl:'https://mcaas.stylopay.com/',                        status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:24, env:'StyloPay', product:'api-user',          url:'https://developer.stylopay.com',port:8060, path:'/actuator/health', finalUrl:'https://developer.stylopay.com:8060/actuator/health',status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:25, env:'StyloPay', product:'api-kyc',           url:'https://developer.stylopay.com',port:8061, path:'/actuator/health', finalUrl:'https://developer.stylopay.com:8061/actuator/health',status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:26, env:'StyloPay', product:'api-account',       url:'https://developer.stylopay.com',port:8062, path:'/actuator/health', finalUrl:'https://developer.stylopay.com:8062/actuator/health',status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:27, env:'StyloPay', product:'api-tx',            url:'https://developer.stylopay.com',port:8064, path:'/actuator/health', finalUrl:'https://developer.stylopay.com:8064/actuator/health',status:'Healthy', doneBy:'Subhankhi', remarks:''},
-  {id:28, env:'StyloPay', product:'api-card',          url:'https://developer.stylopay.com',port:8065, path:'/actuator/health', finalUrl:'https://developer.stylopay.com:8065/actuator/health',status:'Healthy', doneBy:'Subhankhi', remarks:''},
+// ══════════════════════════════════════════════
+//  URL TRANSFORMATION
+//  prod:    admin.zoqq.com
+//  sandbox: admin.sandbox.zoqq.com
+//  qa:      admin.qa.zoqq.com
+// ══════════════════════════════════════════════
+const COMPANIES = ['zoqq', 'hashdt', 'stylopay'];
+
+function toTierUrl(prodUrl, tier) {
+  if (tier === 'prod') return prodUrl;
+  try {
+    const u = new URL(prodUrl);
+    // e.g. host = "admin.zoqq.com" or "developer.zoqq.com:8070"
+    let host = u.hostname; // "admin.zoqq.com"
+    // Find which company domain this belongs to
+    const company = COMPANIES.find(c => host.includes('.' + c + '.') || host.endsWith('.' + c + '.com') || host === c + '.com');
+    if (!company) return prodUrl; // can't transform, return as-is
+    // Insert tier subdomain before the company name
+    // "admin.zoqq.com" → parts before company = "admin", company = "zoqq", tld = "com"
+    // Result: "admin.sandbox.zoqq.com"
+    const companyIndex = host.lastIndexOf('.' + company + '.com');
+    const prefix = host.substring(0, companyIndex); // "admin" or "developer"
+    const newHost = prefix + '.' + tier + '.' + company + '.com';
+    u.hostname = newHost;
+    return u.toString();
+  } catch(e) {
+    return prodUrl;
+  }
+}
+
+// ══════════════════════════════════════════════
+//  BASE DATA  (prod URLs only — others auto-derived)
+// ══════════════════════════════════════════════
+const BASE = [
+  // ZOQQ
+  { id:1,  env:'ZOQQ',     product:'zoqq-admin-fe',     prodUrl:'https://admin.zoqq.com',                             doneBy:'Subhankhi', remarks:'' },
+  { id:2,  env:'ZOQQ',     product:'zoqq-admin-be',     prodUrl:'https://admin.zoqq.com:8000/health',                 doneBy:'Subhankhi', remarks:'' },
+  { id:3,  env:'ZOQQ',     product:'zoqq-cards-fe',     prodUrl:'https://carduser.zoqq.com',                          doneBy:'Subhankhi', remarks:'' },
+  { id:4,  env:'ZOQQ',     product:'zoqq-cards-be',     prodUrl:'https://carduser.zoqq.com:8000/health',              doneBy:'Subhankhi', remarks:'' },
+  { id:5,  env:'ZOQQ',     product:'zoqq-user-fe',      prodUrl:'https://biz.zoqq.com',                               doneBy:'Subhankhi', remarks:'' },
+  { id:6,  env:'ZOQQ',     product:'zoqq-user-be',      prodUrl:'https://biz.zoqq.com:8000/health',                   doneBy:'Subhankhi', remarks:'' },
+  { id:7,  env:'ZOQQ',     product:'zoqq-onboarding',   prodUrl:'https://developer.zoqq.com:8070/actuator/health',    doneBy:'Subhankhi', remarks:'' },
+  { id:8,  env:'ZOQQ',     product:'zoqq-account',      prodUrl:'https://developer.zoqq.com:8072/actuator/health',    doneBy:'Subhankhi', remarks:'' },
+  { id:9,  env:'ZOQQ',     product:'zoqq-tx',           prodUrl:'https://developer.zoqq.com:8074/actuator/health',    doneBy:'Subhankhi', remarks:'' },
+  { id:10, env:'ZOQQ',     product:'zoqq-card',         prodUrl:'https://developer.zoqq.com:8075/actuator/health',    doneBy:'Subhankhi', remarks:'' },
+  { id:11, env:'ZOQQ',     product:'zoqq-rbac',         prodUrl:'https://developer.zoqq.com:5002/health',             doneBy:'Subhankhi', remarks:'' },
+  { id:12, env:'ZOQQ',     product:'zoqq-webhook',      prodUrl:'https://webhook.zoqq.com/health',                    doneBy:'Subhankhi', remarks:'' },
+  // HashDT
+  { id:13, env:'HashDT',   product:'card portal - fe',  prodUrl:'https://carduser.hashdt.com',                        doneBy:'Subhankhi', remarks:'' },
+  { id:14, env:'HashDT',   product:'card portal - be',  prodUrl:'https://carduser.hashdt.com:8000/health',            doneBy:'Subhankhi', remarks:'' },
+  { id:15, env:'HashDT',   product:'admin portal - fe', prodUrl:'https://admin.hashdt.com',                           doneBy:'Subhankhi', remarks:'' },
+  { id:16, env:'HashDT',   product:'admin portal - be', prodUrl:'https://admin.hashdt.com:8000/health',               doneBy:'Subhankhi', remarks:'' },
+  { id:17, env:'HashDT',   product:'onboarding',        prodUrl:'https://developer.hashdt.com:8090/actuator/health',  doneBy:'Subhankhi', remarks:'' },
+  { id:18, env:'HashDT',   product:'kyc',               prodUrl:'https://developer.hashdt.com:8091/actuator/health',  doneBy:'Subhankhi', remarks:'' },
+  { id:19, env:'HashDT',   product:'wallet',            prodUrl:'https://developer.hashdt.com:8092/actuator/health',  doneBy:'Subhankhi', remarks:'' },
+  { id:20, env:'HashDT',   product:'card',              prodUrl:'https://developer.hashdt.com:8095/actuator/health',  doneBy:'Subhankhi', remarks:'' },
+  { id:21, env:'HashDT',   product:'rha',               prodUrl:'https://rha.zoqq.com:8096/actuator/health',          doneBy:'Subhankhi', remarks:'' },
+  // StyloPay
+  { id:22, env:'StyloPay', product:'web-admin',         prodUrl:'https://adminusd.stylopay.com/',                     doneBy:'Subhankhi', remarks:'' },
+  { id:23, env:'StyloPay', product:'web-user',          prodUrl:'https://mcaas.stylopay.com/',                        doneBy:'Subhankhi', remarks:'' },
+  { id:24, env:'StyloPay', product:'api-user',          prodUrl:'https://developer.stylopay.com:8060/actuator/health',doneBy:'Subhankhi', remarks:'' },
+  { id:25, env:'StyloPay', product:'api-kyc',           prodUrl:'https://developer.stylopay.com:8061/actuator/health',doneBy:'Subhankhi', remarks:'' },
+  { id:26, env:'StyloPay', product:'api-account',       prodUrl:'https://developer.stylopay.com:8062/actuator/health',doneBy:'Subhankhi', remarks:'' },
+  { id:27, env:'StyloPay', product:'api-tx',            prodUrl:'https://developer.stylopay.com:8064/actuator/health',doneBy:'Subhankhi', remarks:'' },
+  { id:28, env:'StyloPay', product:'api-card',          prodUrl:'https://developer.stylopay.com:8065/actuator/health',doneBy:'Subhankhi', remarks:'' },
 ];
 
-let nextId=29, editId=null, activeEnv='all', activeSt=null;
+// Per-tier status store: statusStore[tier][id]
+const statusStore = { prod:{}, sandbox:{}, qa:{} };
+BASE.forEach(ep => {
+  ['prod','sandbox','qa'].forEach(t => { statusStore[t][ep.id] = 'Unknown'; });
+});
 
-const ENV={
-  ZOQQ:     {color:'#6366f1',bg:'#eef0ff'},
-  HashDT:   {color:'#0ea5e9',bg:'#e0f6ff'},
-  StyloPay: {color:'#a855f7',bg:'#f5eeff'},
+let nextId = 29;
+let editId  = null;
+let activeTier = 'prod';
+let activeEnv  = 'all';
+let activeSt   = null;
+
+const data = [...BASE]; // editable copy
+
+const ENV_CFG = {
+  ZOQQ:     { color:'#6366f1', bg:'#eef0ff' },
+  HashDT:   { color:'#0ea5e9', bg:'#e0f6ff' },
+  StyloPay: { color:'#a855f7', bg:'#f5eeff' },
 };
 
-// Clock
-setInterval(()=>{
-  const n=new Date();
-  document.getElementById('clock').textContent=
-    n.toLocaleTimeString('en-IN',{hour12:false})+'  '+
-    n.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
-},1000);
+const TIER_META = {
+  prod:    { label:'Production', icon:'🟢', bannerClass:'prod',    bannerText:'🟢 <strong>Production</strong> — Live production endpoints' },
+  sandbox: { label:'Sandbox',    icon:'🟡', bannerClass:'sandbox', bannerText:'🟡 <strong>Sandbox</strong> — Sandbox testing endpoints' },
+  qa:      { label:'QA',         icon:'🟣', bannerClass:'qa',      bannerText:'🟣 <strong>QA</strong> — Quality assurance endpoints' },
+};
 
-function setEnv(env,el){
-  activeEnv=env; activeSt=null;
-  document.querySelectorAll('.nav').forEach(b=>b.classList.remove('active'));
+// ── Clock ────────────────────────────────────
+setInterval(() => {
+  const n = new Date();
+  document.getElementById('clock').textContent =
+    n.toLocaleTimeString('en-IN', {hour12:false}) + '  ' +
+    n.toLocaleDateString('en-IN', {day:'2-digit', month:'short', year:'numeric'});
+}, 1000);
+
+// ── Tier switch ──────────────────────────────
+function setTier(tier, el) {
+  activeTier = tier;
+  document.querySelectorAll('.ttab').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  // update banner
+  const m = TIER_META[tier];
+  const banner = document.getElementById('tier-banner');
+  banner.className = 'tier-banner ' + m.bannerClass;
+  banner.innerHTML = m.bannerText;
+  render();
+}
+
+// ── Env / status filter ───────────────────────
+function setEnv(env, el) {
+  activeEnv = env; activeSt = null;
+  document.querySelectorAll('.nav').forEach(b => b.classList.remove('active'));
   el.classList.add('active');
   render();
 }
 
-function setStatus(s,el){
-  if(activeSt===s){ activeSt=null; el.classList.remove('active'); }
-  else { activeSt=s; document.querySelectorAll('.nav').forEach(b=>b.classList.remove('active')); el.classList.add('active'); }
-  activeEnv='all';
+function setSt(s, el) {
+  activeSt = (activeSt === s) ? null : s;
+  document.querySelectorAll('.nav').forEach(b => b.classList.remove('active'));
+  if (activeSt) el.classList.add('active');
+  activeEnv = 'all';
   render();
 }
 
-function typeOf(p){
-  p=p.toLowerCase();
-  if(p.includes('-fe')||p.includes('frontend')||p.startsWith('web-')) return{lbl:'FE',color:'#6366f1',bg:'#eef0ff'};
-  if(p.includes('-be')||p.includes('backend'))                         return{lbl:'BE',color:'#0ea5e9',bg:'#e0f6ff'};
-  return{lbl:'API',color:'#a855f7',bg:'#f5eeff'};
+// ── Type badge ───────────────────────────────
+function typeOf(p) {
+  p = p.toLowerCase();
+  if (p.includes('-fe') || p.includes('frontend') || p.startsWith('web-')) return {lbl:'FE', color:'#6366f1', bg:'#eef0ff'};
+  if (p.includes('-be') || p.includes('backend'))                           return {lbl:'BE', color:'#0ea5e9', bg:'#e0f6ff'};
+  return {lbl:'API', color:'#a855f7', bg:'#f5eeff'};
 }
 
-function badge(s){
-  if(s==='Healthy')   return`<span class="badge b-up"><span class="bdot"></span>UP</span>`;
-  if(s==='Unhealthy') return`<span class="badge b-down"><span class="bdot"></span>DOWN</span>`;
-  if(s==='Checking')  return`<span class="badge b-chk"><span class="bdot"></span>CHECKING</span>`;
-  return`<span class="badge b-unk"><span class="bdot"></span>UNKNOWN</span>`;
+// ── Status badge ─────────────────────────────
+function badge(s) {
+  if (s === 'Healthy')   return `<span class="badge b-up"><span class="bdot"></span>UP</span>`;
+  if (s === 'Unhealthy') return `<span class="badge b-down"><span class="bdot"></span>DOWN</span>`;
+  if (s === 'Checking')  return `<span class="badge b-chk"><span class="bdot"></span>CHECKING</span>`;
+  return `<span class="badge b-unk"><span class="bdot"></span>UNKNOWN</span>`;
 }
 
-function filtered(){
-  const q=(document.getElementById('si').value||'').toLowerCase();
-  return data.filter(ep=>{
-    const eOk=activeEnv==='all'||ep.env===activeEnv;
-    const sOk=!activeSt||ep.status===activeSt;
-    const qOk=!q||ep.product.toLowerCase().includes(q)||ep.env.toLowerCase().includes(q)||ep.path.toLowerCase().includes(q);
-    return eOk&&sOk&&qOk;
+// ── Get current URL for active tier ──────────
+function getUrl(ep) {
+  return toTierUrl(ep.prodUrl, activeTier);
+}
+
+// ── Get current status ────────────────────────
+function getStatus(ep) {
+  return statusStore[activeTier][ep.id] || 'Unknown';
+}
+function setStatus(ep, s) {
+  statusStore[activeTier][ep.id] = s;
+}
+
+// ── Filtered rows ────────────────────────────
+function filtered() {
+  const q = (document.getElementById('si').value || '').toLowerCase();
+  return data.filter(ep => {
+    const eOk = activeEnv === 'all' || ep.env === activeEnv;
+    const sOk = !activeSt || getStatus(ep) === activeSt;
+    const qOk = !q || ep.product.toLowerCase().includes(q) || ep.env.toLowerCase().includes(q);
+    return eOk && sOk && qOk;
   });
 }
 
-function render(){
+// ── Render ────────────────────────────────────
+function render() {
   updateStats();
-  const rows=filtered();
-  const envs=['ZOQQ','HashDT','StyloPay'];
-  const toShow=activeEnv==='all'?envs:[activeEnv];
-  let html='';
+  const rows = filtered();
+  const envs = ['ZOQQ','HashDT','StyloPay'];
+  const toShow = activeEnv === 'all' ? envs : [activeEnv];
+  let html = '';
 
-  toShow.forEach(env=>{
-    const ers=rows.filter(r=>r.env===env);
-    if(!ers.length) return;
-    const cfg=ENV[env];
-    html+=`
+  toShow.forEach(env => {
+    const ers = rows.filter(r => r.env === env);
+    if (!ers.length) return;
+    const cfg = ENV_CFG[env];
+    html += `
     <div class="sec-card">
       <div class="sec-head">
         <div class="env-pill" style="background:${cfg.bg};color:${cfg.color}">
@@ -750,195 +528,235 @@ function render(){
         </tr></thead>
         <tbody>`;
 
-    ers.forEach(ep=>{
-      const t=typeOf(ep.product);
-      html+=`<tr onclick="showDrawer(${ep.id})">
+    ers.forEach(ep => {
+      const t = typeOf(ep.product);
+      const url = getUrl(ep);
+      let port = '—', path = '—';
+      try {
+        const u = new URL(url);
+        port = u.port || (u.protocol === 'https:' ? '443' : '80');
+        path = u.pathname || '/';
+      } catch(e) {}
+
+      html += `<tr onclick="showDrawer(${ep.id})">
         <td>
           <div class="prod-cell">
             <div class="prod-icon" style="background:${t.bg};color:${t.color}">${t.lbl}</div>
             <div><div class="prod-name">${ep.product}</div><div class="prod-sub">${ep.env}</div></div>
           </div>
         </td>
-        <td><span class="chip">${ep.port}</span></td>
-        <td><span class="path">${ep.path}</span></td>
-        <td id="st-${ep.id}">${badge(ep.status)}</td>
+        <td><span class="chip">${port}</span></td>
+        <td><span class="path">${path}</span></td>
+        <td id="st-${ep.id}">${badge(getStatus(ep))}</td>
         <td>
           <div class="ra" onclick="event.stopPropagation()">
             <button class="ibtn" title="Re-check" onclick="checkOne(${ep.id})">↻</button>
-            <button class="ibtn" title="Edit" onclick="openEdit(${ep.id})">✎</button>
+            <button class="ibtn" title="Edit"     onclick="openEdit(${ep.id})">✎</button>
             <button class="ibtn del" title="Delete" onclick="del(${ep.id})">✕</button>
           </div>
         </td>
       </tr>`;
     });
-    html+='</tbody></table></div>';
+    html += '</tbody></table></div>';
   });
 
-  if(!html) html='<div class="empty">No services match your filters.</div>';
-  document.getElementById('tables').innerHTML=html;
+  if (!html) html = '<div class="empty">No services match your filters.</div>';
+  document.getElementById('tables').innerHTML = html;
 }
 
-function updateStats(){
-  const total=data.length;
-  const up=data.filter(e=>e.status==='Healthy').length;
-  const down=data.filter(e=>e.status==='Unhealthy').length;
-  const unk=data.filter(e=>e.status==='Unknown'||e.status==='Checking').length;
-  document.getElementById('s-total').textContent=total;
-  document.getElementById('s-up').textContent=up;
-  document.getElementById('s-down').textContent=down;
-  document.getElementById('s-unk').textContent=unk;
-  document.getElementById('c-all').textContent=total;
-  document.getElementById('c-ZOQQ').textContent=data.filter(e=>e.env==='ZOQQ').length;
-  document.getElementById('c-HashDT').textContent=data.filter(e=>e.env==='HashDT').length;
-  document.getElementById('c-StyloPay').textContent=data.filter(e=>e.env==='StyloPay').length;
-  document.getElementById('c-up').textContent=up;
-  document.getElementById('c-down').textContent=down;
-  document.getElementById('c-unk').textContent=unk;
+function updateStats() {
+  const total = data.length;
+  const up    = data.filter(e => getStatus(e) === 'Healthy').length;
+  const down  = data.filter(e => getStatus(e) === 'Unhealthy').length;
+  const unk   = data.filter(e => !['Healthy','Unhealthy'].includes(getStatus(e))).length;
+  document.getElementById('s-total').textContent = total;
+  document.getElementById('s-up').textContent    = up;
+  document.getElementById('s-down').textContent  = down;
+  document.getElementById('s-unk').textContent   = unk;
+  document.getElementById('c-all').textContent      = total;
+  document.getElementById('c-ZOQQ').textContent     = data.filter(e=>e.env==='ZOQQ').length;
+  document.getElementById('c-HashDT').textContent   = data.filter(e=>e.env==='HashDT').length;
+  document.getElementById('c-StyloPay').textContent = data.filter(e=>e.env==='StyloPay').length;
+  document.getElementById('c-up').textContent   = up;
+  document.getElementById('c-down').textContent = down;
+  document.getElementById('c-unk').textContent  = unk;
 }
 
-function refreshCell(ep){
-  const el=document.getElementById('st-'+ep.id);
-  if(el) el.innerHTML=badge(ep.status);
+function refreshCell(ep) {
+  const el = document.getElementById('st-' + ep.id);
+  if (el) el.innerHTML = badge(getStatus(ep));
 }
 
-async function simulate(ep){
-  return new Promise(resolve=>{
-    const ctrl=new AbortController();
-    const t=setTimeout(()=>{ctrl.abort();resolve('Unhealthy');},5000);
-    fetch(ep.finalUrl,{method:'GET',mode:'no-cors',signal:ctrl.signal})
-      .then(()=>{clearTimeout(t);resolve('Healthy');})
-      .catch(err=>{clearTimeout(t);resolve(err.name==='AbortError'?'Unhealthy':'Healthy');});
+// ── Health check (simulated fetch) ───────────
+async function simulate(url) {
+  return new Promise(resolve => {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => { ctrl.abort(); resolve('Unhealthy'); }, 6000);
+    fetch(url, { method:'GET', mode:'no-cors', signal:ctrl.signal })
+      .then(() => { clearTimeout(t); resolve('Healthy'); })
+      .catch(err => { clearTimeout(t); resolve(err.name === 'AbortError' ? 'Unhealthy' : 'Healthy'); });
   });
 }
 
-async function checkOne(id){
-  const ep=data.find(e=>e.id===id);if(!ep)return;
-  ep.status='Checking';refreshCell(ep);updateStats();
-  ep.status=await simulate(ep);refreshCell(ep);updateStats();
-  toast(ep.status==='Healthy'?'ok':'err',`${ep.product}: ${ep.status}`);
+async function checkOne(id) {
+  const ep = data.find(e => e.id === id); if (!ep) return;
+  setStatus(ep, 'Checking'); refreshCell(ep); updateStats();
+  const result = await simulate(getUrl(ep));
+  setStatus(ep, result); refreshCell(ep); updateStats();
+  toast(result === 'Healthy' ? 'ok' : 'err', `${ep.product}: ${result}`);
 }
 
-async function checkEnv(env,e){
-  if(e)e.stopPropagation();
-  const eps=data.filter(ep=>ep.env===env);
-  eps.forEach(ep=>{ep.status='Checking';refreshCell(ep);});updateStats();
-  for(const ep of eps){ep.status=await simulate(ep);refreshCell(ep);updateStats();}
-  toast('ok',`${env} check complete`);
-}
-
-async function checkAll(){
-  const pw=document.getElementById('pw'),fill=document.getElementById('pfill');
-  const lbl=document.getElementById('plbl'),cnt=document.getElementById('pcnt');
-  pw.classList.add('show');
-  data.forEach(ep=>{ep.status='Checking';refreshCell(ep);});updateStats();
-  let done=0;
-  for(const ep of data){
-    ep.status=await simulate(ep);refreshCell(ep);done++;
-    fill.style.width=(done/data.length*100)+'%';
-    cnt.textContent=`${done}/${data.length}`;updateStats();
+async function checkEnv(env, e) {
+  if (e) e.stopPropagation();
+  const eps = data.filter(ep => ep.env === env);
+  eps.forEach(ep => { setStatus(ep,'Checking'); refreshCell(ep); }); updateStats();
+  for (const ep of eps) {
+    const result = await simulate(getUrl(ep));
+    setStatus(ep, result); refreshCell(ep); updateStats();
   }
-  lbl.textContent='✅ Complete';
-  setTimeout(()=>{pw.classList.remove('show');fill.style.width='0%';lbl.textContent='Checking…';},2500);
-  toast('ok','All checks complete');
+  toast('ok', `${env} [${TIER_META[activeTier].label}] check complete`);
 }
 
-function showDrawer(id){
-  const ep=data.find(e=>e.id===id);if(!ep)return;
-  const cfg=ENV[ep.env]||{};
-  document.getElementById('dn').textContent=ep.product;
-  document.getElementById('de').innerHTML=`<span style="color:${cfg.color};font-weight:700">${ep.env}</span> · Port ${ep.port}`;
-  document.getElementById('db').innerHTML=`
-    <div class="df"><div class="dfl">Status</div><div class="dfv">${badge(ep.status)}</div></div>
-    <div class="df"><div class="dfl">Health Path</div><div class="dfv">${ep.path}</div></div>
-    <div class="df"><div class="dfl">Final Health URL</div><div class="dfv"><a href="${ep.finalUrl}" target="_blank">${ep.finalUrl}</a></div></div>
-    <div class="df"><div class="dfl">Base URL</div><div class="dfv"><a href="${ep.url}" target="_blank">${ep.url}</a></div></div>
-    <div class="df"><div class="dfl">Port</div><div class="dfv">${ep.port}</div></div>
+async function checkAll() {
+  const pw = document.getElementById('pw'), fill = document.getElementById('pfill');
+  const lbl = document.getElementById('plbl'), cnt = document.getElementById('pcnt');
+  pw.classList.add('show'); lbl.textContent = `Checking ${TIER_META[activeTier].label}…`;
+  data.forEach(ep => { setStatus(ep,'Checking'); refreshCell(ep); }); updateStats();
+  let done = 0;
+  for (const ep of data) {
+    const result = await simulate(getUrl(ep));
+    setStatus(ep, result); refreshCell(ep); done++;
+    fill.style.width = (done / data.length * 100) + '%';
+    cnt.textContent = `${done}/${data.length}`; updateStats();
+  }
+  lbl.textContent = '✅ Complete';
+  setTimeout(() => { pw.classList.remove('show'); fill.style.width='0%'; lbl.textContent='Checking…'; }, 2500);
+  toast('ok', `All ${TIER_META[activeTier].label} checks done`);
+}
+
+// ── Detail Drawer ─────────────────────────────
+function showDrawer(id) {
+  const ep = data.find(e => e.id === id); if (!ep) return;
+  const cfg = ENV_CFG[ep.env] || {};
+  const url = getUrl(ep);
+  const tier = TIER_META[activeTier];
+
+  document.getElementById('dn').textContent = ep.product;
+  document.getElementById('de').innerHTML = `<span style="color:${cfg.color};font-weight:700">${ep.env}</span> · ${tier.icon} ${tier.label}`;
+  document.getElementById('db').innerHTML = `
+    <div class="df"><div class="dfl">Status (${tier.label})</div><div class="dfv">${badge(getStatus(ep))}</div></div>
+    <div class="df"><div class="dfl">${tier.icon} ${tier.label} URL</div><div class="dfv"><a href="${url}" target="_blank">${url}</a></div></div>
+    <div class="df"><div class="dfl">🟢 Production URL</div><div class="dfv"><a href="${ep.prodUrl}" target="_blank">${ep.prodUrl}</a></div></div>
+    <div class="df"><div class="dfl">🟡 Sandbox URL</div><div class="dfv"><a href="${toTierUrl(ep.prodUrl,'sandbox')}" target="_blank">${toTierUrl(ep.prodUrl,'sandbox')}</a></div></div>
+    <div class="df"><div class="dfl">🟣 QA URL</div><div class="dfv"><a href="${toTierUrl(ep.prodUrl,'qa')}" target="_blank">${toTierUrl(ep.prodUrl,'qa')}</a></div></div>
     <div class="df"><div class="dfl">Checked By</div><div class="dfv">${ep.doneBy||'—'}</div></div>
-    ${ep.remarks?`<div class="df"><div class="dfl">Remarks</div><div class="dfv">${ep.remarks}</div></div>`:''}
+    ${ep.remarks ? `<div class="df"><div class="dfl">Remarks</div><div class="dfv">${ep.remarks}</div></div>` : ''}
     <div class="da" style="margin-top:4px">
-      <button class="btn btn-green" onclick="checkOne(${ep.id})">↻ Re-check</button>
+      <button class="btn btn-green"   onclick="checkOne(${ep.id})">↻ Re-check</button>
       <button class="btn btn-outline" onclick="openEdit(${ep.id})">✎ Edit</button>
     </div>`;
   document.getElementById('drawer').classList.add('open');
 }
 
-function closeDrawer(){document.getElementById('drawer').classList.remove('open');}
+function closeDrawer() { document.getElementById('drawer').classList.remove('open'); }
 
-function openAdd(){
-  editId=null;
-  document.getElementById('mtitle').textContent='Add Endpoint';
-  ['fp','fu','fpo','fpa','ff','fd','fr'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('fe').value='ZOQQ';
-  document.getElementById('fs').value='Unknown';
+// ── Modal: auto-fill sandbox/qa URLs ─────────
+document.getElementById('fu').addEventListener('input', function() {
+  const v = this.value.trim();
+  document.getElementById('fu-sb').value = v ? toTierUrl(v,'sandbox') : '';
+  document.getElementById('fu-qa').value = v ? toTierUrl(v,'qa')      : '';
+});
+
+// ── CRUD ─────────────────────────────────────
+function openAdd() {
+  editId = null;
+  document.getElementById('mtitle').textContent = 'Add Endpoint';
+  ['fp','fu','fu-sb','fu-qa','fd','fr'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('fe').value = 'ZOQQ';
+  document.getElementById('fs').value = 'Unknown';
   document.getElementById('overlay').classList.add('open');
 }
 
-function openEdit(id){
-  const ep=data.find(e=>e.id===id);if(!ep)return;
-  editId=id;
-  document.getElementById('mtitle').textContent='Edit Endpoint';
-  document.getElementById('fp').value=ep.product;
-  document.getElementById('fe').value=ep.env;
-  document.getElementById('fu').value=ep.url;
-  document.getElementById('fpo').value=ep.port;
-  document.getElementById('fpa').value=ep.path;
-  document.getElementById('ff').value=ep.finalUrl;
-  document.getElementById('fd').value=ep.doneBy||'';
-  document.getElementById('fs').value=ep.status;
-  document.getElementById('fr').value=ep.remarks||'';
+function openEdit(id) {
+  const ep = data.find(e => e.id === id); if (!ep) return;
+  editId = id;
+  document.getElementById('mtitle').textContent = 'Edit Endpoint';
+  document.getElementById('fp').value    = ep.product;
+  document.getElementById('fe').value    = ep.env;
+  document.getElementById('fu').value    = ep.prodUrl;
+  document.getElementById('fu-sb').value = toTierUrl(ep.prodUrl,'sandbox');
+  document.getElementById('fu-qa').value = toTierUrl(ep.prodUrl,'qa');
+  document.getElementById('fd').value    = ep.doneBy || '';
+  document.getElementById('fs').value    = getStatus(ep);
+  document.getElementById('fr').value    = ep.remarks || '';
   document.getElementById('overlay').classList.add('open');
 }
 
-function closeModal(){document.getElementById('overlay').classList.remove('open');editId=null;}
+function closeModal() { document.getElementById('overlay').classList.remove('open'); editId = null; }
 
-function save(){
-  const product=document.getElementById('fp').value.trim();
-  const url=document.getElementById('fu').value.trim();
-  if(!product||!url){toast('err','Product and URL are required');return;}
-  const port=parseInt(document.getElementById('fpo').value)||80;
-  const path=document.getElementById('fpa').value.trim()||'/health';
-  const env=document.getElementById('fe').value;
-  const doneBy=document.getElementById('fd').value.trim();
-  const status=document.getElementById('fs').value;
-  const remarks=document.getElementById('fr').value.trim();
-  let finalUrl=document.getElementById('ff').value.trim();
-  if(!finalUrl){const base=url.replace(/\/$/,'');finalUrl=(port===80||port===443)?base+path:`${base}:${port}${path}`;}
-  if(editId){
-    const ep=data.find(e=>e.id===editId);
-    Object.assign(ep,{product,url,port,path,finalUrl,env,doneBy,status,remarks});
-    toast('ok','Endpoint updated');
-  }else{
-    data.push({id:nextId++,env,product,url,port,path,finalUrl,status,doneBy,remarks});
-    toast('ok','Endpoint added');
+function save() {
+  const product = document.getElementById('fp').value.trim();
+  const prodUrl = document.getElementById('fu').value.trim();
+  if (!product || !prodUrl) { toast('err','Product name and URL are required'); return; }
+  const env    = document.getElementById('fe').value;
+  const doneBy = document.getElementById('fd').value.trim();
+  const status = document.getElementById('fs').value;
+  const remarks= document.getElementById('fr').value.trim();
+
+  if (editId) {
+    const ep = data.find(e => e.id === editId);
+    Object.assign(ep, { product, prodUrl, env, doneBy, remarks });
+    setStatus(ep, status);
+    toast('ok', 'Endpoint updated');
+  } else {
+    const newEp = { id: nextId++, env, product, prodUrl, doneBy, remarks };
+    data.push(newEp);
+    ['prod','sandbox','qa'].forEach(t => { statusStore[t][newEp.id] = 'Unknown'; });
+    setStatus(newEp, status);
+    toast('ok', 'Endpoint added');
   }
-  closeModal();render();
+  closeModal(); render();
 }
 
-function del(id){
-  const ep=data.find(e=>e.id===id);
-  if(!ep||!confirm(`Delete "${ep.product}"?`))return;
-  data=data.filter(e=>e.id!==id);closeDrawer();render();
-  toast('inf',`Deleted: ${ep.product}`);
+function del(id) {
+  const ep = data.find(e => e.id === id);
+  if (!ep || !confirm(`Delete "${ep.product}"?`)) return;
+  data.splice(data.indexOf(ep), 1);
+  ['prod','sandbox','qa'].forEach(t => { delete statusStore[t][id]; });
+  closeDrawer(); render();
+  toast('inf', `Deleted: ${ep.product}`);
 }
 
-function exportCSV(){
-  const hdr=['Environment','Product','URL','Port','Health Path','Final URL','Status','Done By','Remarks'];
-  const rows=data.map(e=>[e.env,e.product,e.url,e.port,e.path,e.finalUrl,e.status,e.doneBy,e.remarks]);
-  const csv=[hdr,...rows].map(r=>r.map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(',')).join('\n');
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
-  a.download='portal_endpoints_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
-  toast('ok','Exported as CSV');
+// ── Export ────────────────────────────────────
+function exportCSV() {
+  const tier = activeTier;
+  const hdr = ['Platform','Product','Prod URL','Sandbox URL','QA URL','Status','Done By','Remarks'];
+  const rows = data.map(e => [
+    e.env, e.product,
+    e.prodUrl,
+    toTierUrl(e.prodUrl,'sandbox'),
+    toTierUrl(e.prodUrl,'qa'),
+    statusStore[tier][e.id] || 'Unknown',
+    e.doneBy, e.remarks
+  ]);
+  const csv = [hdr,...rows].map(r => r.map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download = `portal_${tier}_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  toast('ok', 'Exported as CSV');
 }
 
-function toast(type,msg){
-  const c=document.getElementById('toasts');
-  const el=document.createElement('div');
-  el.className=`toast t-${type}`;el.textContent=msg;c.appendChild(el);
-  setTimeout(()=>el.remove(),3000);
+// ── Misc ──────────────────────────────────────
+function toast(type, msg) {
+  const c = document.getElementById('toasts');
+  const el = document.createElement('div');
+  el.className = `toast t-${type}`; el.textContent = msg; c.appendChild(el);
+  setTimeout(() => el.remove(), 3000);
 }
 
-document.getElementById('overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.getElementById('overlay').addEventListener('click', function(e) { if (e.target===this) closeModal(); });
+
 render();
 </script>
 </body>
