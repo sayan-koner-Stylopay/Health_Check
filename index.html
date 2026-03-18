@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal Monitor · Health Dashboard with PDF Export</title>
+<title>Portal Monitor · Fixed Health Checks</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f0f2f7;--surface:#fff;--surface2:#f7f8fc;--border:#e4e7ef;--accent:#4f6ef7;--green:#16a34a;--gbg:#dcfce7;--red:#dc2626;--rbg:#fee2e2;--amber:#d97706;--abg:#fef3c7;--slate:#64748b;--text:#0f172a;--sub:#64748b;--zoqq:#6366f1;--hashdt:#0ea5e9;--stylopay:#a855f7;--r:13px;--sh:0 1px 3px rgba(0,0,0,.07),0 4px 14px rgba(0,0,0,.04)}
@@ -199,7 +199,7 @@ td{padding:11px 18px;font-size:13px;vertical-align:middle}
         <div class="fg"><label style="color:#7c3aed">🟣 QA URL (auto)</label><input id="fu-qa" type="text" placeholder="Auto-computed" style="background:#faf5ff"></div>
       </div>
       <div class="r2">
-        <div class="fg"><label>Done By</label><input id="fd" type="text" placeholder="Your name"></div>
+        <div class="fg"><label>Done By</label><input id="fd" type="text" placeholder="Your name" value="Sandeep"></div>
         <div class="fg"><label>Status</label><select id="fs"><option value="Unknown">Unknown</option><option value="Healthy">Healthy</option><option value="Unhealthy">Unhealthy</option></select></div>
       </div>
       <div class="fg full"><label>Remarks</label><textarea id="fr" placeholder="Optional notes…"></textarea></div>
@@ -272,4 +272,4 @@ const BASE_DATA = [
   {id:23, env:'StyloPay', product:'web-user', prodUrl:'https://mcaas.stylopay.com/', doneBy:'Sandeep', remarks:'', lastChecked:'03-17-2026 20:30'},
   {id:24, env:'StyloPay', product:'api-user', prodUrl:'https://developer.stylopay.com:8060/actuator/health', doneBy:'Sandeep', remarks:'', lastChecked:'03-17-2026 20:30'},
   {id:25, env:'StyloPay', product:'api-kyc', prodUrl:'https://developer.stylopay.com:8061/actuator/health', doneBy:'Sandeep', remarks:'', lastChecked:'03-17-2026 20:30'},
-  {id:26, env:'StyloPay', product:'api-account', prodUrl:'https://developer.stylopay.com:8062/actuator/health', doneBy:'Sandeep', remarks:'', lastChecked:'03-
+  {id:26, env:'StyloPay', product:'api-account', prodUrl:'https://developer.stylopay.com:8062
