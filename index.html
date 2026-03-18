@@ -218,34 +218,34 @@ function toTierUrl(prodUrl,tier){
   }catch(e){return prodUrl;}
 }
 var BASE_DATA=[
-  {id:1, env:'ZOQQ',    product:'zoqq-admin-fe',     prodUrl:'https://admin.zoqq.com',                              doneBy:'Subhankhi',remarks:''},
-  {id:2, env:'ZOQQ',    product:'zoqq-admin-be',     prodUrl:'https://admin.zoqq.com:8000/health',                  doneBy:'Subhankhi',remarks:''},
-  {id:3, env:'ZOQQ',    product:'zoqq-cards-fe',     prodUrl:'https://carduser.zoqq.com',                           doneBy:'Subhankhi',remarks:''},
-  {id:4, env:'ZOQQ',    product:'zoqq-cards-be',     prodUrl:'https://carduser.zoqq.com:8000/health',               doneBy:'Subhankhi',remarks:''},
-  {id:5, env:'ZOQQ',    product:'zoqq-user-fe',      prodUrl:'https://biz.zoqq.com',                                doneBy:'Subhankhi',remarks:''},
-  {id:6, env:'ZOQQ',    product:'zoqq-user-be',      prodUrl:'https://biz.zoqq.com:8000/health',                    doneBy:'Subhankhi',remarks:''},
-  {id:7, env:'ZOQQ',    product:'zoqq-onboarding',   prodUrl:'https://developer.zoqq.com:8070/actuator/health',     doneBy:'Subhankhi',remarks:''},
-  {id:8, env:'ZOQQ',    product:'zoqq-account',      prodUrl:'https://developer.zoqq.com:8072/actuator/health',     doneBy:'Subhankhi',remarks:''},
-  {id:9, env:'ZOQQ',    product:'zoqq-tx',           prodUrl:'https://developer.zoqq.com:8074/actuator/health',     doneBy:'Subhankhi',remarks:''},
-  {id:10,env:'ZOQQ',    product:'zoqq-card',         prodUrl:'https://developer.zoqq.com:8075/actuator/health',     doneBy:'Subhankhi',remarks:''},
-  {id:11,env:'ZOQQ',    product:'zoqq-rbac',         prodUrl:'https://developer.zoqq.com:5002/health',              doneBy:'Subhankhi',remarks:''},
-  {id:12,env:'ZOQQ',    product:'zoqq-webhook',      prodUrl:'https://webhook.zoqq.com/health',                     doneBy:'Subhankhi',remarks:''},
-  {id:13,env:'HashDT',  product:'card portal - fe',  prodUrl:'https://carduser.hashdt.com',                         doneBy:'Subhankhi',remarks:''},
-  {id:14,env:'HashDT',  product:'card portal - be',  prodUrl:'https://carduser.hashdt.com:8000/health',             doneBy:'Subhankhi',remarks:''},
-  {id:15,env:'HashDT',  product:'admin portal - fe', prodUrl:'https://admin.hashdt.com',                            doneBy:'Subhankhi',remarks:''},
-  {id:16,env:'HashDT',  product:'admin portal - be', prodUrl:'https://admin.hashdt.com:8000/health',                doneBy:'Subhankhi',remarks:''},
-  {id:17,env:'HashDT',  product:'onboarding',        prodUrl:'https://developer.hashdt.com:8090/actuator/health',   doneBy:'Subhankhi',remarks:''},
-  {id:18,env:'HashDT',  product:'kyc',               prodUrl:'https://developer.hashdt.com:8091/actuator/health',   doneBy:'Subhankhi',remarks:''},
-  {id:19,env:'HashDT',  product:'wallet',            prodUrl:'https://developer.hashdt.com:8092/actuator/health',   doneBy:'Subhankhi',remarks:''},
-  {id:20,env:'HashDT',  product:'card',              prodUrl:'https://developer.hashdt.com:8095/actuator/health',   doneBy:'Subhankhi',remarks:''},
-  {id:21,env:'HashDT',  product:'rha',               prodUrl:'https://rha.zoqq.com:8096/actuator/health',           doneBy:'Subhankhi',remarks:''},
-  {id:22,env:'StyloPay',product:'web-admin',         prodUrl:'https://adminusd.stylopay.com/',                      doneBy:'Subhankhi',remarks:''},
-  {id:23,env:'StyloPay',product:'web-user',          prodUrl:'https://mcaas.stylopay.com/',                         doneBy:'Subhankhi',remarks:''},
-  {id:24,env:'StyloPay',product:'api-user',          prodUrl:'https://developer.stylopay.com:8060/actuator/health', doneBy:'Subhankhi',remarks:''},
-  {id:25,env:'StyloPay',product:'api-kyc',           prodUrl:'https://developer.stylopay.com:8061/actuator/health', doneBy:'Subhankhi',remarks:''},
-  {id:26,env:'StyloPay',product:'api-account',       prodUrl:'https://developer.stylopay.com:8062/actuator/health', doneBy:'Subhankhi',remarks:''},
-  {id:27,env:'StyloPay',product:'api-tx',            prodUrl:'https://developer.stylopay.com:8064/actuator/health', doneBy:'Subhankhi',remarks:''},
-  {id:28,env:'StyloPay',product:'api-card',          prodUrl:'https://developer.stylopay.com:8065/actuator/health', doneBy:'Subhankhi',remarks:''}
+  {id:1, env:'ZOQQ',    product:'zoqq-admin-fe',     prodUrl:'https://admin.zoqq.com',                              finalUrl:'https://admin.zoqq.com',                              doneBy:'Subhankhi',remarks:''},
+  {id:2, env:'ZOQQ',    product:'zoqq-admin-be',     prodUrl:'https://admin.zoqq.com',                              finalUrl:'https://admin.zoqq.com:8000/health',                  doneBy:'Subhankhi',remarks:''},
+  {id:3, env:'ZOQQ',    product:'zoqq-cards-fe',     prodUrl:'https://carduser.zoqq.com',                           finalUrl:'https://carduser.zoqq.com',                           doneBy:'Subhankhi',remarks:''},
+  {id:4, env:'ZOQQ',    product:'zoqq-cards-be',     prodUrl:'https://carduser.zoqq.com',                           finalUrl:'https://carduser.zoqq.com:8000/health',               doneBy:'Subhankhi',remarks:''},
+  {id:5, env:'ZOQQ',    product:'zoqq-user-fe',      prodUrl:'https://biz.zoqq.com',                                finalUrl:'https://biz.zoqq.com',                                doneBy:'Subhankhi',remarks:''},
+  {id:6, env:'ZOQQ',    product:'zoqq-user-be',      prodUrl:'https://biz.zoqq.com',                                finalUrl:'https://biz.zoqq.com:8000/health',                    doneBy:'Subhankhi',remarks:''},
+  {id:7, env:'ZOQQ',    product:'zoqq-onboarding',   prodUrl:'https://developer.zoqq.com',                          finalUrl:'https://developer.zoqq.com:8070/actuator/health',     doneBy:'Subhankhi',remarks:''},
+  {id:8, env:'ZOQQ',    product:'zoqq-account',      prodUrl:'https://developer.zoqq.com',                          finalUrl:'https://developer.zoqq.com:8072/actuator/health',     doneBy:'Subhankhi',remarks:''},
+  {id:9, env:'ZOQQ',    product:'zoqq-tx',           prodUrl:'https://developer.zoqq.com',                          finalUrl:'https://developer.zoqq.com:8074/actuator/health',     doneBy:'Subhankhi',remarks:''},
+  {id:10,env:'ZOQQ',    product:'zoqq-card',         prodUrl:'https://developer.zoqq.com',                          finalUrl:'https://developer.zoqq.com:8075/actuator/health',     doneBy:'Subhankhi',remarks:''},
+  {id:11,env:'ZOQQ',    product:'zoqq-rbac',         prodUrl:'https://developer.zoqq.com',                          finalUrl:'https://developer.zoqq.com:5002/health',              doneBy:'Subhankhi',remarks:''},
+  {id:12,env:'ZOQQ',    product:'zoqq-webhook',      prodUrl:'https://webhook.zoqq.com',                            finalUrl:'https://webhook.zoqq.com/health',                     doneBy:'Subhankhi',remarks:''},
+  {id:13,env:'HashDT',  product:'card portal - fe',  prodUrl:'https://carduser.hashdt.com',                         finalUrl:'https://carduser.hashdt.com',                         doneBy:'Subhankhi',remarks:''},
+  {id:14,env:'HashDT',  product:'card portal - be',  prodUrl:'https://carduser.hashdt.com',                         finalUrl:'https://carduser.hashdt.com:8000/health',             doneBy:'Subhankhi',remarks:''},
+  {id:15,env:'HashDT',  product:'admin portal - fe', prodUrl:'https://admin.hashdt.com',                            finalUrl:'https://admin.hashdt.com',                            doneBy:'Subhankhi',remarks:''},
+  {id:16,env:'HashDT',  product:'admin portal - be', prodUrl:'https://admin.hashdt.com',                            finalUrl:'https://admin.hashdt.com:8000/health',                doneBy:'Subhankhi',remarks:''},
+  {id:17,env:'HashDT',  product:'onboarding',        prodUrl:'https://developer.hashdt.com',                        finalUrl:'https://developer.hashdt.com:8090/actuator/health',   doneBy:'Subhankhi',remarks:''},
+  {id:18,env:'HashDT',  product:'kyc',               prodUrl:'https://developer.hashdt.com',                        finalUrl:'https://developer.hashdt.com:8091/actuator/health',   doneBy:'Subhankhi',remarks:''},
+  {id:19,env:'HashDT',  product:'wallet',            prodUrl:'https://developer.hashdt.com',                        finalUrl:'https://developer.hashdt.com:8092/actuator/health',   doneBy:'Subhankhi',remarks:''},
+  {id:20,env:'HashDT',  product:'card',              prodUrl:'https://developer.hashdt.com',                        finalUrl:'https://developer.hashdt.com:8095/actuator/health',   doneBy:'Subhankhi',remarks:''},
+  {id:21,env:'HashDT',  product:'rha',               prodUrl:'https://developer.hashdt.com',                        finalUrl:'https://rha.zoqq.com:8096/actuator/health',           doneBy:'Subhankhi',remarks:''},
+  {id:22,env:'StyloPay',product:'web-admin',         prodUrl:'https://adminusd.stylopay.com/',                      finalUrl:'https://adminusd.stylopay.com/',                      doneBy:'Subhankhi',remarks:''},
+  {id:23,env:'StyloPay',product:'web-user',          prodUrl:'https://mcaas.stylopay.com/',                         finalUrl:'https://mcaas.stylopay.com/',                         doneBy:'Subhankhi',remarks:''},
+  {id:24,env:'StyloPay',product:'api-user',          prodUrl:'https://developer.stylopay.com/',                     finalUrl:'https://developer.stylopay.com:8060/actuator/health', doneBy:'Subhankhi',remarks:''},
+  {id:25,env:'StyloPay',product:'api-kyc',           prodUrl:'https://developer.stylopay.com/',                     finalUrl:'https://developer.stylopay.com:8061/actuator/health', doneBy:'Subhankhi',remarks:''},
+  {id:26,env:'StyloPay',product:'api-account',       prodUrl:'https://developer.stylopay.com/',                     finalUrl:'https://developer.stylopay.com:8062/actuator/health', doneBy:'Subhankhi',remarks:''},
+  {id:27,env:'StyloPay',product:'api-tx',            prodUrl:'https://developer.stylopay.com/',                     finalUrl:'https://developer.stylopay.com:8064/actuator/health', doneBy:'Subhankhi',remarks:''},
+  {id:28,env:'StyloPay',product:'api-card',          prodUrl:'https://developer.stylopay.com/',                     finalUrl:'https://developer.stylopay.com:8065/actuator/health', doneBy:'Subhankhi',remarks:''}
 ];
 var data=BASE_DATA.slice();
 var statusStore={prod:{},sandbox:{},qa:{}};
@@ -299,7 +299,10 @@ function badge(s){
   if(s==='Checking')  return '<span class="badge b-chk"><span class="bdot"></span>CHECKING</span>';
   return '<span class="badge b-unk"><span class="bdot"></span>UNKNOWN</span>';
 }
-function getUrl(ep){return toTierUrl(ep.prodUrl,activeTier);}
+function getUrl(ep){
+  if(activeTier==='prod') return ep.finalUrl||ep.prodUrl;
+  return toTierUrl(ep.prodUrl,activeTier);
+}
 function getStatus(ep){return (statusStore[activeTier]&&statusStore[activeTier][ep.id])||'Unknown';}
 function setStatus(ep,s){if(statusStore[activeTier])statusStore[activeTier][ep.id]=s;}
 function filtered(){
@@ -428,7 +431,7 @@ function showDrawer(id){
   document.getElementById('de').innerHTML='<span style="color:'+cfg.color+';font-weight:700">'+ep.env+'</span> &middot; '+tier.label;
   var html='';
   html+='<div class="df"><div class="dfl">Status</div><div class="dfv">'+badge(getStatus(ep))+'</div></div>';
-  html+='<div class="df"><div class="dfl">Production URL</div><div class="dfv"><a href="'+ep.prodUrl+'" target="_blank">'+ep.prodUrl+'</a></div></div>';
+  html+='<div class="df"><div class="dfl">Production URL</div><div class="dfv"><a href="'+(ep.finalUrl||ep.prodUrl)+'" target="_blank">'+(ep.finalUrl||ep.prodUrl)+'</a></div></div>';
   html+='<div class="df"><div class="dfl">Sandbox URL</div><div class="dfv"><a href="'+sb+'" target="_blank">'+sb+'</a></div></div>';
   html+='<div class="df"><div class="dfl">QA URL</div><div class="dfv"><a href="'+qa+'" target="_blank">'+qa+'</a></div></div>';
   html+='<div class="df"><div class="dfl">Checked By</div><div class="dfv">'+(ep.doneBy||'--')+'</div></div>';
@@ -556,7 +559,7 @@ function exportPDF(){
       var st=statusStore[tier][ep.id]||'Unknown';
       var sc=stCfg[st]||stCfg.Unknown;
       var t=getTypeTag(ep.product);
-      var p=getParsed(ep.prodUrl);
+      var epUrl=(activeTier==='prod'&&ep.finalUrl)?ep.finalUrl:toTierUrl(ep.prodUrl,activeTier); var p=getParsed(epUrl);
       var rowbg=i%2===0?'#ffffff':'#f8fafc';
       tableBody+='<tr style="background:'+rowbg+'">';
       tableBody+='<td style="padding:9px 14px">';
